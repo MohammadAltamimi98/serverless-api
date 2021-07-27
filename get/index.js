@@ -5,12 +5,9 @@ const peopleModel = require('./people.schema.js');
 exports.handler = async (event) => {
   try {
     // event.body={ name:'mohammd',age: 23, occupation: 'student'}
-
     // this method will help us check for the path without getting the umdefined error
     const id = event?.pathParameters?.id;
     let data;
-
-
     //.query => we are searching for the id 
     //.eq >> that is equal to 
     // 
@@ -20,7 +17,6 @@ exports.handler = async (event) => {
     } else {
       await peopleModel.scan.exec();
     }
-
     return {
       statusCode: 201, // for creation
       body: JSON.stringify(data)

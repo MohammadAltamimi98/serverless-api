@@ -5,6 +5,8 @@ const peopleModel = require('./people.schema.js');
 exports.handler = async (event) => {
   try {
 
+
+    const id = event?.pathParameters?.id;
     const { name, age, occupation } = JSON.parse(event.body);
 
 

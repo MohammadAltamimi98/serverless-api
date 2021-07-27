@@ -1,7 +1,7 @@
 // this will be our lambda handle file
 
 const uuid = require('uuid').v4;
-const peopleModel = require('./people.schema');
+const peopleModel = require('./people.schema.js');
 
 
 exports.handler = async (event) => {
@@ -17,13 +17,13 @@ exports.handler = async (event) => {
     return {
       statusCode: 201, // for creation
       body: JSON.stringify(data)
-    }
-
-
+    };
   } catch (error) {
     return {
       status: 500,
-      message: error.message
-    }
+      message: error.message,
+    };
   }
-}
+};
+
+

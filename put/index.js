@@ -4,13 +4,8 @@ const peopleModel = require('./people.schema.js');
 
 exports.handler = async (event) => {
   try {
-
-
     const id = event?.pathParameters?.id;
     const { name, age, occupation } = JSON.parse(event.body);
-
-
-
     const data = await peopleModel.update({ "id": id }, { name, age, occupation })
     return {
       statusCode: 201, // for creation

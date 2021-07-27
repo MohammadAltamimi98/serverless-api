@@ -1,7 +1,6 @@
 // this will be our lambda handle file
 const peopleModel = require('./people.schema.js');
 
-
 exports.handler = async (event) => {
   try {
     // event.body={ name:'mohammd',age: 23, occupation: 'student'}
@@ -15,10 +14,10 @@ exports.handler = async (event) => {
       const results = await peopleModel.query('id').eq(id).exec();
       data = results[0];// because it will return a single objectin the array (the one we looking for)
     } else {
-      await peopleModel.scan().exec();
+      data = await peopleModel.scan().exec();
     }
     return {
-      statusCode: 201, // for creation
+      statusCode: 200, // for creation
       body: JSON.stringify(data)
     };
   } catch (error) {
